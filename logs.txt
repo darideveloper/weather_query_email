@@ -1,0 +1,4 @@
+ 2020-09-13 20:31:42,812 - DEBUG - Aquí hay un error
+ 2020-09-13 20:31:53,265 - DEBUG - Aquí hay un error
+ 2020-09-14 20:04:55,085 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
+ 2020-09-14 20:04:55,895 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=19.3752974&lon=-99.2054531&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 13193
