@@ -1,7 +1,7 @@
 #! python3
 # Get information from the api: Open Weather
 
-import json, requests, datetime
+import json, requests, datetime, pprint
 
 def getApiWeather (lat, lon, apiKey): 
     """Get the weather from the api"""
@@ -56,4 +56,34 @@ def extractWeather (weatherList):
         weatherText.append(hourWeather)
 
     return weatherText
+
+def getTodayWeather (infoWeather, today):
+    """Get the weather of today"""
+    mainList = {}
+    totalHours = 0
+    maxHours = 0
+    returnDic = {'text': '', 
+                'max': ''}
+
+    # Count all today weathers
+    for hourWeather in infoWeather: 
+        if hourWeather['day'] == today: 
+            totalHours += 1
+            if hourWeather['main'] in mainList: 
+                mainList[hourWeather['main']] += 1
+                if mainList[hourWeather['main']] > maxHours: 
+                    maxHours = mainList[hourWeather['main']]
+            else: 
+                mainList[hourWeather['main']] = 1
+
+    # Convert today weathers to text
+    for weather, counter in mainList.items(): 
+        returnDic['text'] += weather + ' '
+        returnDic['text'] += str(int(counter*100/totalHours)) + '% '
+
+        if counter == maxHours: 
+            returnDic['max'] += weather + ' '
+            returnDic['max'] += str(int(counter*100/totalHours)) + '% '
+
+    return returnDic
 

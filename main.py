@@ -1,10 +1,10 @@
 #! python3
 # Get the weasther from open weather api, and send by email
 
-import logging, os
-from apiWeather import getApiWeather, extractWeather
+import logging, os, pprint
+from apiWeather import getApiWeather, extractWeather, getTodayWeather
 from apiLocation import getlocation
-from sendMail import sendEmail
+from sendMail import sendEmail, getTextAndHtml
 from interfazWeather import runInterfazCrdentials
 
 # Files and initial vars
@@ -27,11 +27,9 @@ lon = location['lon']
 apikey = info['credentials']['apiKey']
 
 weatherList = getApiWeather (lat, lon, apikey)
-text = extractWeather (weatherList)
+infoWeather = extractWeather (weatherList)
 
-# Send mail and get cedentials
-
-body      = "Weather information"
+# Get credentials
 password  = info['password']
 
 myEmail   = info['credentials']['myEmail']
@@ -39,6 +37,13 @@ subject   = info['credentials']['subject']
 smtp      = info['credentials']['smtp']
 portSmtp  = info['credentials']['portSmtp']
 
+# Process information to text and html
+todayWeather = getTodayWeather (infoWeather, infoWeather[0]['day'])
+textAndHtml = getTextAndHtml(infoWeather, todayWeather)
+
+# Add max weather to subject
+subject += ' ' + todayWeather['max']
+
 # Send each email
 for forEmail in info['credentials']['emails']: 
-    sendEmail (myEmail, password, forEmail, subject, body, smtp, portSmtp)
+    sendEmail (myEmail, password, forEmail, subject, smtp, portSmtp, textAndHtml)
