@@ -1,16 +1,13 @@
 #! python3
 # Get information from the api: Open Weather
 
-import pprint, json, requests, datetime
+import json, requests, datetime
 
 def getApiWeather (lat, lon, apiKey): 
     """Get the weather from the api"""
-    apiWeather = {}
-
     # Download the json data from openWeatherMap.org's API
     # apiKey '148200b8d1c12c3d891801dc216b8f87'
     urlWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat=%s&lon=%s&exclude=minutely,daily&appid=%s'% (lat, lon, apiKey)
-    print(urlWeather)
     response = requests.get(urlWeather)
     response.raise_for_status
     wetaherInfo = json.loads(response.text)
@@ -23,7 +20,6 @@ def getApiWeather (lat, lon, apiKey):
     except KeyError:
         menssage = 'Key api error or location doesn\'t exist. Check your information. '
         menssage += 'Write --help for more information'
-        print (menssage)
         return None
     else: 
         weather.append(currentWeather['weather'][0])
