@@ -1,5 +1,5 @@
 #! python3
-# Basic terminal interfaz
+# Basic terminal interfaz to save crdentials in json file
 
 import sys
 
@@ -19,7 +19,7 @@ def runInterfaz (infoPath, infoName, printInfo, editInfo, getInfo, keyChar):
             # Edit info file
             editInfo (infoPath)
         else: 
-            if len(sys.argv) == 3: 
+            if len(sys.argv) == 2: 
                 return info
             else: 
                 return ('error')

@@ -3,11 +3,11 @@
 
 import smtplib
 
-def sendEmail (myEmail, password, to, subject, body, smtp, port):
+def sendEmail (myEmail, password, to, subject, body, smtp, portSmtp):
 
     """ Login to smtp and send email"""
     try: 
-        smtpObj = smtplib.SMTP(smtp, port)
+        smtpObj = smtplib.SMTP(smtp, portSmtp)
         smtpObj.ehlo()
         smtpObj.starttls()
     except:

@@ -34,3 +34,23 @@
  2020-09-15 00:24:30,200 - DEBUG - http://ipinfo.io:80 "GET /json HTTP/1.1" 200 None
  2020-09-15 00:24:30,206 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
  2020-09-15 00:24:30,871 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=21.8823&lon=-102.2826&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 13109
+ 2020-09-15 00:44:54,649 - DEBUG - Starting new HTTP connection (1): ipinfo.io:80
+ 2020-09-15 00:44:54,739 - DEBUG - http://ipinfo.io:80 "GET /json HTTP/1.1" 200 None
+ 2020-09-15 00:44:54,745 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
+ 2020-09-15 00:44:55,370 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=21.8823&lon=-102.2826&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 13109
+ 2020-09-15 00:48:09,550 - DEBUG - Starting new HTTP connection (1): ipinfo.io:80
+ 2020-09-15 00:48:09,651 - DEBUG - http://ipinfo.io:80 "GET /json HTTP/1.1" 200 None
+ 2020-09-15 00:48:09,655 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
+ 2020-09-15 00:48:10,372 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=21.8823&lon=-102.2826&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 12998
+ 2020-09-15 00:48:53,219 - DEBUG - Starting new HTTP connection (1): ipinfo.io:80
+ 2020-09-15 00:48:53,309 - DEBUG - http://ipinfo.io:80 "GET /json HTTP/1.1" 200 None
+ 2020-09-15 00:48:53,311 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
+ 2020-09-15 00:48:53,918 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=21.8823&lon=-102.2826&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 12998
+ 2020-09-15 00:49:33,328 - DEBUG - Starting new HTTP connection (1): ipinfo.io:80
+ 2020-09-15 00:49:33,436 - DEBUG - http://ipinfo.io:80 "GET /json HTTP/1.1" 200 None
+ 2020-09-15 00:49:33,442 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
+ 2020-09-15 00:49:34,094 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=21.8823&lon=-102.2826&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 12998
+ 2020-09-15 00:50:19,556 - DEBUG - Starting new HTTP connection (1): ipinfo.io:80
+ 2020-09-15 00:50:24,661 - DEBUG - http://ipinfo.io:80 "GET /json HTTP/1.1" 200 None
+ 2020-09-15 00:50:24,668 - DEBUG - Starting new HTTPS connection (1): api.openweathermap.org:443
+ 2020-09-15 00:50:25,413 - DEBUG - https://api.openweathermap.org:443 "GET /data/2.5/onecall?lat=21.8823&lon=-102.2826&exclude=minutely,daily&appid=148200b8d1c12c3d891801dc216b8f87 HTTP/1.1" 200 12998
