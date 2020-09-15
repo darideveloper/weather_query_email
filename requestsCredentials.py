@@ -1,6 +1,7 @@
 #! python3
 # Request specific credentials of the project
 
+import logging
 from rwJsonFile import writeJsonFile
 from credentials import validateCredentail, returnCredentials, returnCredential, printCredentials
 
@@ -32,5 +33,7 @@ def requestsCredentials (credentailsPath):
                     'apiKey': apiKey, 
                     'subject': subject}
 
-    print ('\nNew credentials saved.\n')
+    menssage = 'New credentials saved.'
+    print ('\n' + menssage + '\n')
+    logging.info (menssage)
     writeJsonFile (credentailsPath, credentials)

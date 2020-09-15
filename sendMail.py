@@ -1,7 +1,7 @@
 #! python3
 # Login to SMTP and send email
 
-import smtplib
+import smtplib, logging, sys
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -16,6 +16,8 @@ def sendEmail (myEmail, password, to, subject, smtp, portSmtp, textAndHtml):
         menssage = 'SMTP or Port error. Check your information. '
         menssage += 'You can modify your mail, with "-c -edit"'
         print (menssage)
+        logging.error (menssage)
+        sys.exit()
     else:
         try: 
             smtpObj.login(myEmail, password)
@@ -23,8 +25,11 @@ def sendEmail (myEmail, password, to, subject, smtp, portSmtp, textAndHtml):
             menssage = 'Email adrress of password error. Check your information. '
             menssage += 'You can modify your mail, with "-c -edit"'
             print (menssage)
+            logging.error (menssage)
+            sys.exit()
         else: 
             print ('Sending weather email to %s...' %to)
+            logging.info ('Sending weather email to %s...' %to)
         
             # Create message container - the correct MIME type is multipart/alternative.
             msg = MIMEMultipart('alternative')

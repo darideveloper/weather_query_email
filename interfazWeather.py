@@ -1,7 +1,7 @@
 #! python3
 # Specific interfaz for the program
 
-import sys
+import sys, logging
 from interfaz import runInterfaz
 from requestsCredentials import returnCredentials, returnCredential, requestsCredentials, printCredentials
 
@@ -16,7 +16,9 @@ def runInterfazCrdentials (credentialsPath):
         print ('write your email password, to run the program and send weather mails(example "yourPassword")')
         sys.exit()
     elif credentials == 'error': 
-        print ('Syntaxis error... write --help for more information')
+        menssage = 'Syntaxis error... write --help for more information' 
+        print (menssage)
+        logging.error (menssage)
         sys.exit()
     else:
         password = sys.argv[1]

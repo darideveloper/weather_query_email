@@ -30,7 +30,7 @@ def getApiWeather (lat, lon, apiKey):
 
 def extractWeather (weatherList): 
     """ Convert the current weather information, to text"""
-    hourCounter = 0
+    hourCounter = -1
     weatherText = []
     for weatherItem in weatherList: 
         hourCounter += 1
