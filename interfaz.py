@@ -1,5 +1,6 @@
 #! python3
 import json, os, sys
+from rwJson import readJsonFile, writeJsonFile
 
 class Interfaz ():
     """Class to execute an interface from terminal, managing user credentials"""
@@ -60,8 +61,8 @@ class Interfaz ():
                 print (errorMenssage)
 
         # Read files. 
-        configCredentials = self.readJsonFile (pathConfigCredentialsFile)
-        credentials = self.readJsonFile (pathCredentialsFile)
+        configCredentials = readJsonFile (pathConfigCredentialsFile)
+        credentials = readJsonFile (pathCredentialsFile)
 
         # if files are empty, requet it
         if not configCredentials: 
@@ -69,30 +70,10 @@ class Interfaz ():
         
         if not credentials: 
             self.requestCredentials ()
-                
-    def readJsonFile (self, path): 
-        """Read paths of json files, and return the information inside"""
-        if str(path).endswith('.json'):
-            infoReturn = ''
-            file = open (path, 'a').close() # If the file dosent exist, make it
-            file = open (path, 'r')
-            info = file.read()
-            if info:
-                infoReturn = json.loads(info)
-            file.close()
-            return infoReturn
-
-    def writeJsonFile (self, path, info): 
-        """Write information in json file"""
-        if str(path).endswith('.json'):
-            file = open (path, 'a').close() # If the file dosent exist, make it
-            file = open (path, 'w')
-            infoJson = json.dumps(info)
-            file.write(infoJson)
 
     def printCredentials (self): 
         """ Print a list of the credentials"""
-        credentials = self.readJsonFile(self.credentailsPath)
+        credentials = readJsonFile(self.credentailsPath)
         if credentials: 
             for name, credential in credentials.items(): 
                 print (name, ': ', credential)
@@ -102,7 +83,7 @@ class Interfaz ():
     def printConfigCredentials (self): 
         """ Print a list of the config of credentials"""
         credentialConfigCounter = 0
-        configCredentials = self.readJsonFile(self.configCredentialsPath)
+        configCredentials = readJsonFile(self.configCredentialsPath)
         if configCredentials: 
             for configCredentail in configCredentials: 
                 credentialConfigCounter += 1
@@ -138,7 +119,7 @@ class Interfaz ():
             credentialCounter += 1
             
         # Write credentials settings in the file
-        self.writeJsonFile (self.configCredentialsPath, credentialsSettings)
+        writeJsonFile (self.configCredentialsPath, credentialsSettings)
 
     def requestCredentials (self): 
         """ Request the credentials with the credentials configuration file"""
@@ -147,7 +128,7 @@ class Interfaz ():
         print ("\nPlase, capture your information")
 
         # Get configuration for each credential
-        configCredentials = self.readJsonFile (self.configCredentialsPath)
+        configCredentials = readJsonFile (self.configCredentialsPath)
 
         # Request to user each credential
         for configCredential in configCredentials: 
@@ -190,8 +171,8 @@ class Interfaz ():
             credentials [configCredential['name']] = credential
 
         # Save credentials
-        self.writeJsonFile (self.credentailsPath, credentials)
+        writeJsonFile (self.credentailsPath, credentials)
 
     def getCredentials (self): 
-        credentials = self.readJsonFile (self.credentailsPath)
+        credentials = readJsonFile (self.credentailsPath)
         return (credentials)
