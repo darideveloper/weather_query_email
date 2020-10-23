@@ -38,20 +38,19 @@ def sendEmail (myEmail, password, to, subject, smtp, portSmtp, textAndHtml):
             msg['To'] = to
             
             # Record the MIME types of both parts - text/plain and text/html.
-            part1 = MIMEText(textAndHtml['text'], 'plain')
-            part2 = MIMEText(textAndHtml['html'], 'html')
+            htmlMail = MIMEText(textAndHtml, 'html')
+            textMail = MIMEText(" ", 'plane')
 
             # Attach parts into message container.
-            msg.attach(part1)
-            msg.attach(part2)
-
+            msg.attach(textMail)
+            msg.attach(htmlMail)
+            
             # Send the message via local SMTP server.
             smtpObj.sendmail(myEmail, to, msg.as_string())
             smtpObj.quit()
 
-def getTextAndHtml (infoWeather, todayWeather): 
+def getTextAndHtml (infoWeather, todayWeather, greeting): 
     """ From infoWeather get text and html"""
-    text = "Weather information... "
     table = ''
 
     # Count the days in the infoWeather
@@ -113,6 +112,7 @@ def getTextAndHtml (infoWeather, todayWeather):
             </style>
         </head>
         <body>
+            <p> %s </p>
             <p>
                 <h1> Today Weather </h1>
                 <h2> <b> %s </b></h2> 
@@ -123,7 +123,7 @@ def getTextAndHtml (infoWeather, todayWeather):
             </p>
         </body>
     </html>
-    """ % (todayWeather['text'], table)
+    """ % (greeting, todayWeather['text'], table)
 
-    return {'text': text, 'html': html}
+    return html
 
