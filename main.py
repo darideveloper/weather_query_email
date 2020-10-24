@@ -14,6 +14,35 @@ configPath = os.path.join(currentDir, 'config.json')
 logPath = os.path.join(currentDir, 'logs.txt')
 emailsPath = os.path.join (currentDir, 'emails.csv')
 
+def requestEmails (emailsPath): 
+    """Requet a list of emails and names"""
+    print ("\nNo recipient information. Please enter their names and emails.\n")
+
+    # open file
+    csvFile = open (emailsPath, 'w')
+    csvWriter = csv.writer (csvFile)
+
+    emailCounter = 1
+    otherRecipient = True
+    while otherRecipient:
+        # Request name and email
+        name = input ("Recipient %s name: " % emailCounter)
+        while True:
+            email = input ("Recipient %s email: " % emailCounter)
+            # Validate email
+            if "@" in email and "." in email:
+                break
+        
+        # Save information
+        csvWriter.writerow ([email, name])
+
+        other = input ("Other recipient (y/n) ")
+        if other.lower()[0] != 'y': 
+            otherRecipient = False
+        
+        emailCounter += 1
+
+
 myInterfaz = Interfaz (credentialsPath, configPath)
 
 logging.basicConfig(filename=logPath, level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
@@ -33,9 +62,17 @@ weatherList = getApiWeather (lat, lon, apikey)
 infoWeather = extractWeather (weatherList)
 
 # read emails
-emailsCSV = open (emailsPath, 'r')
-readerCSV = csv.reader (emailsCSV)
-emails = list (readerCSV)
+while True: 
+
+    if os.path.exists (emailsPath): 
+        emailsCSV = open (emailsPath, 'r')
+        readerCSV = csv.reader (emailsCSV)
+        emails = list (readerCSV)
+
+        if emails: 
+            break
+
+    requestEmails(emailsPath)
 
 
 # Get credentials
@@ -56,8 +93,7 @@ subject += ' ' + todayWeather['max']
 for toEmail in emails: 
     email = toEmail[0]
     name = toEmail[1]
-    position = toEmail[2]
     # Gat HTML menssage and add greeting
-    greeting = "Hello %s %s. " % (position.title(), name.title())
+    greeting = "Hello %s. " % (name.title())
     textAndHtml =  getTextAndHtml(infoWeather, todayWeather, greeting)
     sendEmail (myEmail, password, email, subject, smtp, portSmtp, textAndHtml)
