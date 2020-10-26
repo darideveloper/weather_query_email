@@ -104,4 +104,4 @@ $ Other recipient (y/n)
 ```
 
 # Screenshots
-[received mail]()
+![received mail](https://github.com/DariHernandez/weather_query_email/blob/master/screenshots/ss1.jpg)
