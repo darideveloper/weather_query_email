@@ -16,12 +16,12 @@ class Interfaz ():
 
 
         # Menssages
-        helpMenssage = "Run the interfaz.py to request credentials or configuration of credentials. \
+        helpMenssage = "Run the interfaz.py to request credentials \
         \n interfaz.py return the current credentials.\
         \n write '-l --cred' to see all credentials \
-        \n write '-l --config' to see all credentials configuration options. \
-        \n write '-e --config' to edit all credentials configuration options. \
-        \n write '-e --cred' to edit all credentials"
+        \n write '-e --cred' to edit all credentials \
+        \n You can delete the file 'emails.csv' so that the system will request the emails again.\
+        \n You can also manually edit the file to add or delete information, respecting the format: 'email, name'"
         
         errorMenssage = "Incorrect input. Write --help for more information"
 
