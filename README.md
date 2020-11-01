@@ -1,5 +1,6 @@
 # weather_query_email
 ## Description
+This is a terminal project.
 Get information of weather, by email, connecting with the api Open Weather
 # How to use
 ## Api weather account
