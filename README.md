@@ -1,10 +1,10 @@
 # weather_query_email
 ## Description
 This is a terminal project.
-Get information of weather, by email, connecting with the api Open Weather
+**Get information of weather, by email**, connecting with the api **Open Weather.**
 # How to use
 ## Api weather account
-You need to create a free account in https://openweathermap.org/, to get your api key
+You need to **create a free account** in https://openweathermap.org/, to **get your api key.**
 ## Credentials
 The first time that you run the program, it request your email acount: 
 * **email:** your email acountconfigurated to use as SMTP server.
@@ -13,9 +13,8 @@ The first time that you run the program, it request your email acount:
 * **SMTP port**
 * **Subject:** The subject in the emails
 
-You can check your SMTP port and server depends on the mail service you use (gmail, outlook, yahoo, etc)
+You can **check your SMTP port and server** depends on the mail service you use (gmail, outlook, yahoo, etc)
 You can get more information about SMAP configuration, here: 
-* [My blog](https://darideveloper.wordpress.com/2020/09/26/python-smtplib/)
 * [Microsoft post](https://support.microsoft.com/es-es/office/configuraci%c3%b3n-de-correo-electr%c3%b3nico-pop-e-imap-para-outlook-8361e398-8af4-4e97-b147-6c6c4ac95353?ui=es-es&rs=es-es&ad=es)
 
 ## CSV emails
@@ -34,26 +33,20 @@ Use '--help' for more information in any moment on other keywords:
 ```bash
 $ python3 main.py --help        
 
-#Run the interfaz.py to request credentials 
-
-#interfaz.py return the current credentials.
-
+#Run the main.py to request credentials 
 #write '-l --cred' to see all credentials 
-
 #write '-e --cred' to edit all credentials 
-
 #You can delete the file 'emails.csv' so that the system will request the emails again.
-
 #You can also manually edit the file to add or delete information, respecting the format: 'email, name'"
 
 ```
 ## Run the program
 When the program has the credentials and the email destination, it will do the following: 
 
-1. Connect to OPEN WEATHER API to get weather information. 
-2. Format weather information as html table.
-3. Read the list of emails. 
-4. Send send a email for each one in the list,
+**1. Connect to OPEN WEATHER API to get weather information.** 
+**2. Format weather information as html table.**
+**3. Read the list of emails. **
+**4. Send send a email for each one in the list.**
 # Use example
 ## Credentials
 
@@ -104,5 +97,5 @@ $ Other recipient (y/n)
 
 ```
 
-# Screenshots
+# Screenshot o0f email 
 ![received mail](https://github.com/DariHernandez/weather_query_email/blob/master/screenshots/ss1.jpg)
